@@ -8,18 +8,23 @@ import axios from 'axios';
 const BASE_URL ='https://api.themoviedb.org/3/';
 const API_KEY = 'e07de169e37f03be6b5aa0a3464541c3';
 
-export const fetchTrendingMovies = async (search, page) => {
-  const { data } = await axios.get(
-    `${BASE_URL}?q=${search}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
-  );
-  return data;
-};
+// export const fetchTrendingMovie = async (search, page) => {
+//   const { data } = await axios.get(
+//     `${BASE_URL}?q=${search}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+//   );
+//   return data;
+// };
 
-export const fetchTrending = async () => {
-    const response = await axios.get(`trending/movie/day?api_key=${API_KEY}`);
+export const fetchTrendingMovies= async () => {
+    const response = await axios.get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`);
     return response.data.results;
   };
   
+ export const searchMovies = async (query) => {
+  const response = await axios.get(`${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`);
+  return response.data.results;
+};
+ 
 // export async function fetchTrendMoves(page = 1) {
 //     const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`;
 //     return await axios

@@ -1,9 +1,10 @@
-// import { Searchbar } from "./Search/Search"; 
 
+
+import { Routes, Route } from "react-router-dom"
 import { Header } from "./Header/Header"
 import { Home } from "../pages/Home";
 import { Movies } from "../pages/Movies";
-import { Routes, Route } from "react-router-dom"
+
 
 
 
@@ -19,10 +20,3 @@ export const App = () => (
 );
 
 
-/* <Header /> 
-<Routes>
-  <Route index element={<Home />} />
-  <Route exact path="/" element={<Home />}>
-  </Route>
-  <Route exact path="/movies" element={<Movies />} />
-</Routes> */

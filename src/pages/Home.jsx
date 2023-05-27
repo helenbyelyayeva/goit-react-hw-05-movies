@@ -1,14 +1,39 @@
+import React, { useEffect, useState } from 'react';
+import {  MovieList } from "../components/Movies/MovieList";
+import { fetchTrendingMovies } from 'Api/Api';
+import { Section } from 'components/Section/Section';
+// import css from "./Home.module.css";
+// import Loader from 'components/Loader/Loader';
+
 export const Home = () => {
+    const [films, setFilms] = useState([]);
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        const FetchTrendingFilms = async () => {
+            setLoading(true);
+            try {
+                const trendingFilms = await fetchTrendingMovies();
+                setFilms(trendingFilms);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        FetchTrendingFilms();
+    }, []);
+    //   useEffect(() => {
+    //     const { results } = fetchTrendingMovies();
+
+    //     setMovies(results);
+    //   }, []);
+
     return (
-      <main>
-        <h1>Welcome</h1>
-    
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-          laboriosam placeat incidunt rem illum animi nemo quibusdam quia
-          voluptatum voluptate.
-        </p>
-      </main>
+        <main>
+            <Section title={'Trending today'}>
+            {films && < MovieList films={films} />}
+            </Section>
+        </main>
     );
-  };
-  
+};
+

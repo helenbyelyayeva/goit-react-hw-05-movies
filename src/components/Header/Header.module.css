@@ -1,13 +1,11 @@
 .header {
     width: 100vw;
     background-color:#6495ED;
-    top: 0;
-    left: 0;
-    position: fixed;
     right: 0;
     z-index: 1;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-bottom: 30px;
   }
   
  .navigatian{
@@ -21,7 +19,11 @@
     margin-right: 40px;
 }
 
-.link:hover{
+.active{
+    margin-right: 40px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
     text-decoration: underline;
     text-underline-offset: 8px;
 }
