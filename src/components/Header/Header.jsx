@@ -1,22 +1,20 @@
-// import { NavLink } from 'react-router-dom';
-// import style from './Header.module.css';
+import { NavLink } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 import css from "./Header.module.css";
-export function Header() {
+export const Header = () =>{
     return (
-        <header className={css.header}>
-            <nav className={css.navigatian}>
-            <a className={css.link}href="url">home</a>
-            <a className={css.link}href="url">movies</a>
-            </nav>
-        </header>
-    //     <nav className={style.header}>
-    //     <NavLink to="/" className={style.link}>
-    //         Home
-    //     </NavLink>
-
-    //     <NavLink to="/movies" className={style.link}>
-    //         Movies
-    //     </NavLink>
-    // </nav>
+        <>
+            <header className={css.header}>
+                <nav className={css.navigatian}>
+                    <NavLink to="/" className={css.link}>
+                        home
+                    </NavLink>
+                    <NavLink to="/movies" className={css.link}>
+                        movies
+                    </NavLink>
+                </nav>
+            </header>
+            <Outlet />
+        </>
     )
 };

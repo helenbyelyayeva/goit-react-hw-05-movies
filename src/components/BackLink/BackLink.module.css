@@ -1,0 +1,19 @@
+.btn{
+    margin-left: 100px;
+    margin-top: 200px;
+    border: none;
+    border-radius: 20px;
+    background-color:#F0E68C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition-property:transform;
+    transition: 500ms cubic-bezier(.4,0,.2,1);
+}
+.btn:hover{
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}

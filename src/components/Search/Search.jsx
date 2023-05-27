@@ -4,7 +4,6 @@ import css from "./Search.module.css";
 import { FaSearch } from 'react-icons/fa';
 
 
-
 export const Searchbar = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
 
