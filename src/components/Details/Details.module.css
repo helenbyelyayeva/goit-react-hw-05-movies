@@ -1,0 +1,18 @@
+.details{
+    display: flex;
+    align-items: flex-start;
+    gap:100px;
+}
+.poster{
+    width: 300px;
+    height: 450px;
+    object-fit: contain;
+}
+
+.genres{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    justify-content: flex-start;
+}

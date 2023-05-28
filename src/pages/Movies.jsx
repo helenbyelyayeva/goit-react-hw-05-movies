@@ -2,7 +2,7 @@ import { Searchbar } from "../components/Search/Search";
 import { Section } from "../components/Section/Section";
 import { searchMovies } from "Api/Api";
 import { MovieList } from "components/Movies/MovieList";
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -16,12 +16,6 @@ export const Movies = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const query = event.target.elements.query.value.trim();
-
-    if (query === '') {
-      toast.error('Please enter some data');
-      return;
-    }
-
     setSearchParams({ query: query.toLowerCase() });
   };
 
@@ -29,17 +23,21 @@ export const Movies = () => {
     // setLoading(true);
     try {
       if (movieName.trim() === '') {
-        toast.error('Please enter some data');
+        toast.info('Rember to enter movie name before seacrh', {
+          toastId: 'error1',
+        });
         return;
       }
-      
       const searchMovie = await searchMovies(movieName);
-
       if (searchMovie.length === 0) {
-        toast.error('Nothing found');
+        toast.error('Nothing was found. Try again', {
+          toastId: 'error1',
+        });
         return;
       }
-
+      toast.success('Hope you are looking fo this', {
+        toastId: 'success1',
+      });
       setSearch(searchMovie);
     } catch (error) {
       console.log(error);
@@ -55,7 +53,9 @@ export const Movies = () => {
   return (
     <main>
       <Searchbar onSubmit={handleSubmit} />
-      <Section>{searchQuery && <MovieList films={searchQuery} />}</Section>
+      <Section>
+        {searchQuery && <MovieList films={searchQuery} />}
+      </Section>
       <ToastContainer autoClose={2000} />
     </main>
   );

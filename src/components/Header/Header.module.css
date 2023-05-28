@@ -1,29 +1,30 @@
 .header {
-    width: 100vw;
-    background-color:#6495ED;
-    right: 0;
-    z-index: 1;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-  }
-  
- .navigatian{
-    margin-left: 120px;
- }
-  .link {
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-    margin-right: 40px;
+  width: 100vw;
+  background-color: #6495ED;
+  right: 0;
+  z-index: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.active{
-    margin-right: 40px;
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 8px;
+.navigatian {
+  margin-left: 165px;
+}
+
+.link {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+.active {
+  margin-right: 40px;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 8px;
 }
