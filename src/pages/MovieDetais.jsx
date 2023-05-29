@@ -6,15 +6,11 @@ import { Outlet } from "react-router-dom";
 import { Navigation } from "../components/Add-info/Nav";
 
 
+
 export const MovieDetails = () => {
     const location = useLocation();
-    let backLinkTo;
+    const backLinkTo = location?.state?.from ? `${location.state?.from?.pathname}${location.state?.from?.search}` : '/';
 
-    if (location.pathname === '/movies') {
-        backLinkTo = '/movies';
-    } else {
-        backLinkTo = '/';
-    }
 
     return (
         <main>

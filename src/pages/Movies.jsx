@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 export const Movies = () => {
-  const [searchQuery, setSearch] = useState('');
+  const [searchQuery, setSearch] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams({});
   const movieName = searchParams.get('query') ?? '';
   // const [loading, setLoading] = useState();
@@ -22,7 +22,7 @@ export const Movies = () => {
   const onSearchMovie = async () => {
     // setLoading(true);
     try {
-      if (movieName.trim() === '') {
+      if (!movieName) {
         toast.info('Rember to enter movie name before seacrh', {
           toastId: 'error1',
         });
@@ -35,9 +35,6 @@ export const Movies = () => {
         });
         return;
       }
-      toast.success('Hope you are looking fo this', {
-        toastId: 'success1',
-      });
       setSearch(searchMovie);
     } catch (error) {
       console.log(error);
