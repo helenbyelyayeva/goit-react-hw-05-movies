@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
+import { Suspense } from "react";
+import { Loader } from 'components/Loader/Loader';
 import css from "./Header.module.css";
+
 export const Header = () => {
     return (
         <>
@@ -14,7 +17,9 @@ export const Header = () => {
                     </NavLink>
                 </nav>
             </header>
-            <Outlet />
+            <Suspense fallback={<Loader />}>
+                <Outlet />
+            </Suspense>
         </>
     )
 };

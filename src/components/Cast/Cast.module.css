@@ -10,19 +10,20 @@
 .cast{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
-    justify-content: space-between;
-    gap:20px;
+    gap:25px;
 }
 
 .actor_card{
+    text-align: center;
     display: block;
-    width: 260px;
+    width: 150px;
 
 }
 
 .actor_img{
-    width: 250px;
-    height: 350px;
+    width: 150px;
+    height: 250px;
     object-fit: cover;
 }

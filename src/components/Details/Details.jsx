@@ -10,14 +10,11 @@ export const Details = () => {
 
     useEffect(() => {
         const onDetalisMovie = async () => {
-            //   setLoading(true);
             try {
                 const details = await getMovieDetails(movieId);
                 setMovie(details);
             } catch (error) {
                 console.log(error);
-            } finally {
-                //     setLoading(false);
             }
         };
         onDetalisMovie();

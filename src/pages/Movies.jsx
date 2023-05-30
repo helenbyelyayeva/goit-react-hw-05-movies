@@ -7,53 +7,53 @@ import { useSearchParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+
+
 export const Movies = () => {
   const [searchQuery, setSearch] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams({});
   const movieName = searchParams.get('query') ?? '';
-  // const [loading, setLoading] = useState();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const query = event.target.elements.query.value.trim();
+  const handleSubmit = ({ query }) => {
+    if (!query) {
+      toast.info('Remember to enter a movie name before searching');
+      setSearch([]);
+      return;
+    }
     setSearchParams({ query: query.toLowerCase() });
   };
 
   const onSearchMovie = async () => {
-    // setLoading(true);
     try {
-      if (!movieName) {
-        toast.info('Rember to enter movie name before seacrh', {
-          toastId: 'error1',
-        });
-        return;
-      }
       const searchMovie = await searchMovies(movieName);
       if (searchMovie.length === 0) {
         toast.error('Nothing was found. Try again', {
           toastId: 'error1',
         });
-        return;
       }
       setSearch(searchMovie);
     } catch (error) {
       console.log(error);
-    } finally {
-      // setLoading(false);
     }
   };
 
   useEffect(() => {
-    onSearchMovie();
+    if (movieName) {
+      onSearchMovie();
+    }
   }, [movieName]);
 
   return (
     <main>
       <Searchbar onSubmit={handleSubmit} />
+      <ToastContainer autoClose={2000} />
       <Section>
         {searchQuery && <MovieList films={searchQuery} />}
       </Section>
-      <ToastContainer autoClose={2000} />
     </main>
   );
 };
+
+
+
+export default Movies;

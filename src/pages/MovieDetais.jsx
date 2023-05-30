@@ -4,7 +4,8 @@ import { Section } from "../components/Section/Section";
 import { Details } from "../components/Details/Details";
 import { Outlet } from "react-router-dom";
 import { Navigation } from "../components/Add-info/Nav";
-
+import { Suspense } from "react";
+import { Loader } from 'components/Loader/Loader';
 
 
 export const MovieDetails = () => {
@@ -18,10 +19,14 @@ export const MovieDetails = () => {
                 <BackLink to={backLinkTo} />
                 <Details />
             </Section>
-            <Section title={'Additional information'}>
-                <Navigation />
-            </Section>
-            <Outlet />
+            <Suspense fallback={<Loader />}>
+                <Section title={'Additional information'}>
+                    <Navigation />
+                </Section>
+                <Outlet />
+            </Suspense>
         </main>
     )
 }
+
+export default MovieDetails;

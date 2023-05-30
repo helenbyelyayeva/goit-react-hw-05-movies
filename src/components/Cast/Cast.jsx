@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Loader } from 'components/Loader/Loader';
 import { getCast } from 'Api/Api';
 import css from "./Cast.module.css";
 import noimage from '../images/noposter.jpg'
@@ -8,7 +7,6 @@ import noimage from '../images/noposter.jpg'
 export const Cast = () => {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
-    // const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const getCasts = async () => {
@@ -21,7 +19,6 @@ export const Cast = () => {
 
     return (
         <div className={css.container}>
-            {/* {loading && <Loader />} */}
             {actors.length === 0 ? (
                 <p>We don't have any information about movie cast</p>
             ) : (
@@ -41,3 +38,5 @@ export const Cast = () => {
         </div>
     );
 };
+
+export default Cast;
