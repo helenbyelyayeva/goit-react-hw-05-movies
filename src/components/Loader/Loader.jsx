@@ -5,8 +5,8 @@ export const Loader = () => {
   return (
     <div className={css.loader}>
       <Triangle
-        height={300}
-        width={300}
+        height={200}
+        width={200}
         timeout={7000}
         color="#6495ED"
         ariaLabel="triangle-loading"

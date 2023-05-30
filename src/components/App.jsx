@@ -6,8 +6,11 @@ import { Header } from "./Header/Header"
 const Home = lazy(() => import("../pages/Home"));
 const Movies = lazy(() => import("../pages/Movies"));
 const MovieDetails = lazy(() => import("../pages/MovieDetais"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+
 const Cast = lazy(() => import("./Cast/Cast"));
 const Reviews = lazy(() => import("./Reviews/Reviews"));
+
 
 export const App = () => (
   <>
@@ -20,6 +23,7 @@ export const App = () => (
           <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </>
 );

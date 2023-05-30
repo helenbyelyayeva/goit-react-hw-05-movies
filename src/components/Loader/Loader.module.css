@@ -1,6 +1,6 @@
 .loader {
-    position: fixed;
-    top: 30%;
-    left: 40%;
+    position: relative;
+    top: 150px;
+    left: 43%;
     z-index: 5;
 }
