@@ -9,7 +9,7 @@ export const Reviews = () => {
 
 
     useEffect(() => {
-        const getCast = async () => {
+        const getInfo = async () => {
             try {
                 const { results } = await getReviews(movieId);
                 setReviews(results);
@@ -17,7 +17,7 @@ export const Reviews = () => {
                 console.log(error);
             }
         };
-        getCast();
+        getInfo();
     }, [movieId]);
 
 
@@ -28,10 +28,10 @@ export const Reviews = () => {
             ) : (
                 <>
                     <ul className={css.list}>
-                        {reviews.map(reviev => (
-                            <li key={reviev.id}>
-                                <p className={css.nick}>{reviev.author}</p>
-                                <p>{reviev.content}</p>
+                        {reviews.map(review => (
+                            <li key={review.id}>
+                                <p className={css.nick}>{review.author}</p>
+                                <p>{review.content}</p>
                             </li>
                         ))}
                     </ul>
