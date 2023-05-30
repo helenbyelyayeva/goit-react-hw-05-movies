@@ -3,7 +3,7 @@ import css from "./Nav.module.css";
 
 export const Navigation = () => {
     const location = useLocation();
-    const state = location.state || {}; // Use an empty object as fallback
+    const state = location.state || {}; 
 
     return (
         <ul className={css.navigation}>
