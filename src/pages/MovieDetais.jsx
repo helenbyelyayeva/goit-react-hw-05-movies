@@ -18,10 +18,10 @@ export const MovieDetails = () => {
                 <BackLink to={backLinkTo} />
                 <Details />
             </Section>
+            <Section title={'Additional information'}>
+                <Navigation />
+            </Section>
             <Suspense fallback={<Loader />}>
-                <Section title={'Additional information'}>
-                    <Navigation />
-                </Section>
                 <Outlet />
             </Suspense>
         </main>
