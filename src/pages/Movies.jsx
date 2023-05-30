@@ -2,7 +2,7 @@ import { Searchbar } from "../components/Search/Search";
 import { Section } from "../components/Section/Section";
 import { searchMovies } from "Api/Api";
 import { MovieList } from "components/Movies/MovieList";
-import { useState, useEffect } from 'react';
+import { useState, useEffect , useCallback} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,7 @@ export const Movies = () => {
     setSearchParams({ query: query.toLowerCase() });
   };
 
-  const onSearchMovie = async () => {
+  const onSearchMovie = useCallback(async () => {
     try {
       const searchMovie = await searchMovies(movieName);
       if (searchMovie.length === 0) {
@@ -35,13 +35,13 @@ export const Movies = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [movieName]);
 
   useEffect(() => {
     if (movieName) {
       onSearchMovie();
     }
-  }, [movieName]);
+  }, [movieName, onSearchMovie]);
 
   return (
     <main>

@@ -10,10 +10,14 @@ export const Cast = () => {
 
     useEffect(() => {
         const getCasts = async () => {
-            const { cast } = await getCast(movieId);
-            setActors(cast);
+            try {
+                const { cast } = await getCast(movieId);
+                setActors(cast);
+            }
+            catch (error) {
+                console.log(error);
+            }
         };
-
         getCasts();
     }, [movieId]);
 

@@ -10,8 +10,12 @@ export const Reviews = () => {
 
     useEffect(() => {
         const getCast = async () => {
-            const { results } = await getReviews(movieId);
-            setReviews(results);
+            try {
+                const { results } = await getReviews(movieId);
+                setReviews(results);
+            } catch (error) {
+                console.log(error);
+            }
         };
         getCast();
     }, [movieId]);

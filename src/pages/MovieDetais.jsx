@@ -1,8 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 import { BackLink } from "../components/BackLink/BackLink";
 import { Section } from "../components/Section/Section";
 import { Details } from "../components/Details/Details";
-import { Outlet } from "react-router-dom";
 import { Navigation } from "../components/Add-info/Nav";
 import { Suspense } from "react";
 import { Loader } from 'components/Loader/Loader';
